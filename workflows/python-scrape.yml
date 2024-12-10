@@ -1,0 +1,36 @@
+name: Run Python Scraper
+
+on:
+  schedule:
+    - cron: '* * * * *'  # Run once a day at midnight (UTC)
+  workflow_dispatch:  # Allows manual trigger from GitHub Actions UI
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install selenium webdriver-manager
+
+      - name: Run scraper
+        run: |
+          python your_script.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'your-github-username'
+          git config --global user.email 'your-email@example.com'
+          git add output.json
+          git commit -m 'Update JSON file'
+          git push
