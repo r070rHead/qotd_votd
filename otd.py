@@ -1,13 +1,20 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 import json
 import time
 
+# Set up Chrome options
+chrome_options = Options()
+chrome_options.add_argument("--headless") # Run Chrome in headless mode
+chrome_options.add_argument("--no-sandbox") # Disable sandbox
+chrome_options.add_argument("--disable-dev-shm-usage") # Overcome limited resources in Docker
+
 # Set up Selenium WebDriver with WebDriver Manager
 service = Service(ChromeDriverManager().install())
-driver = webdriver.Chrome(service=service)
+driver = webdriver.Chrome(service=service, options=chrome_options)
 
 try:
     # Open the target webpage
