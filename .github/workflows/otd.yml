@@ -29,8 +29,8 @@ jobs:
 
       - name: Set up Git user
         run: |
-          git config --global user.name ${{ secrets.MY_USER_NAME }}
-          git config --global user.email ${{ secrets.MY_EMAIL  }}
+          git config --global user.name r070rHead
+          git config --global user.email ${{ secrets.MY_EMAIL }}
       
       - name: Commit and push changes
         run: |
@@ -38,5 +38,5 @@ jobs:
           git commit -m 'Update JSON file'
           git push origin main
         env:
-          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN_2 }}
           
