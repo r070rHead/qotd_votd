@@ -25,7 +25,7 @@ jobs:
 
       - name: Run scraper
         run: |
-          python your_script.py
+          python otd.py
 
       - name: Commit and push changes
         run: |
