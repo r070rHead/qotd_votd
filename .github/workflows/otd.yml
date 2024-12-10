@@ -29,8 +29,9 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --global user.name r070rHead
-          git config --global user.email ken@yeatesclan.com
           git add output.json
           git commit -m 'Update JSON file'
-          git push
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
