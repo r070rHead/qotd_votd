@@ -2,7 +2,7 @@ name: Run Python Scraper
 
 on:
   schedule:
-    - cron: '* * * * *'  # Run once a day at midnight (UTC)
+    - cron: '0 0 * * *'  # Run once a day at midnight (UTC)
   workflow_dispatch:  # Allows manual trigger from GitHub Actions UI
 
 jobs:
