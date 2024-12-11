@@ -36,7 +36,4 @@ jobs:
         run: |
           git add output.json
           git commit -m 'Update JSON file'
-          git push origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
-          
+          git push https://r070rHead:${{ secrets.MY_GITHUB_TOKEN }}@github.com/r070rHead/qotd_votd.git main
